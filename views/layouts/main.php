@@ -9,6 +9,7 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 use app\components\LanguageDropdown;
+use yii\bootstrap\Alert;
 
 AppAsset::register($this);
 ?>
@@ -62,6 +63,12 @@ AppAsset::register($this);
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
+        <?php if(!empty(Yii::$app->session->getFlash('success'))){
+            echo Alert::widget([
+                'options' => ['class' => 'alert-success alert-dismissible'],
+                'body' => Yii::$app->session->getFlash('success')
+            ]);
+        } ?>
         <?= $content ?>
     </div>
 </div>
