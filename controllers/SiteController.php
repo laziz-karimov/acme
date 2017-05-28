@@ -82,6 +82,21 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
+    
+    public function actionRegister(){
+        if (!Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
+        
+        $newUser = new User();
+        if ($newUser->load(Yii::$app->request->post()) && $newUser->save()) {
+            Yii::$app->session->setFlash('success', Yii::t('app', 'Successfully registered'));
+            return $this->goHome();
+        }
+        return $this->render('register', [
+            'newUser' => $newUser
+        ]);
+    }    
 
     /**
      * Logout action.
