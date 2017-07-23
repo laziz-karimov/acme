@@ -113,3 +113,8 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+
+.auth-clients-holder{
+    display: inline-block;
+    vertical-align: top;
+}
