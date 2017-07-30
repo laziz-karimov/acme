@@ -19,7 +19,15 @@ $config = [
                     'class' => 'yii\authclient\clients\Facebook',
                     'clientId' => '268624826877124',
                     'clientSecret' => '5a7052b02b01ed474483a10fb9de4696',
-                ]
+                ],
+                'twitter' => [
+                    'class' => 'yii\authclient\clients\Twitter',
+                    'attributeParams' => [
+                        'include_email' => 'true'
+                    ],
+                    'consumerKey' => 'pMQP7AxKwZQRBp2bbI6KpqzFi',
+                    'consumerSecret' => '5YqT8zrIY9RL740LhZFaUFgJz7iWoRtL442W5DaHf10GzonorC',
+                ],                
             ],
         ],
         'request' => [
