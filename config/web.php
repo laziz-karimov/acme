@@ -12,13 +12,13 @@ $config = [
             'clients' => [
                 'google' => [
                     'class' => 'yii\authclient\clients\Google',
-                    'clientId' => 'google_client_id',
-                    'clientSecret' => 'google_client_secret',
+                    'clientId' => '770876342632-19kb4p33d82dk9gf7idnpu510a214com.apps.googleusercontent.com',
+                    'clientSecret' => 'paxfEsouF9CTpXq5tKQvrsyC',
                 ],
                 'facebook' => [
                     'class' => 'yii\authclient\clients\Facebook',
-                    'clientId' => '268624826877124',
-                    'clientSecret' => '5a7052b02b01ed474483a10fb9de4696',
+                    'clientId' => '252322995285494',
+                    'clientSecret' => '3bff322d7fc17275a102e9d4aed8eefd',
                 ],
                 'twitter' => [
                     'class' => 'yii\authclient\clients\Twitter',

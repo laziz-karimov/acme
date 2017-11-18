@@ -24,9 +24,20 @@ class AuthHandler {
 
     public function handle() {
         $attributes = $this->client->getUserAttributes();
-        $email = ArrayHelper::getValue($attributes, 'email');
-        $id = ArrayHelper::getValue($attributes, 'id');
-        $username = ArrayHelper::getValue($attributes, 'name');
+        $idAttr = 'id';
+        switch($this->client->name){
+            case 'google':
+                $emailAttr = 'emails.0.value';
+                $nameAttr = 'displayName';
+                break;
+            
+            default:
+                $emailAttr = 'email';
+                $nameAttr = 'name';                
+        }
+        $email = ArrayHelper::getValue($attributes, $emailAttr);
+        $id = ArrayHelper::getValue($attributes, $idAttr);
+        $username = ArrayHelper::getValue($attributes, $nameAttr);
 
         /* @var Auth $auth */
         $auth = Auth::find()->where([
