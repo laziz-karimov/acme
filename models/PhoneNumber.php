@@ -35,9 +35,11 @@ class PhoneNumber extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id', 'country_id', 'number', 'verification_code'], 'required'],
+            [['user_id', 'country_id', 'number'], 'required'],
             [['user_id', 'country_id', 'verified', 'active'], 'integer'],
             [['created'], 'safe'],
+            [['verified'], 'default', 'value' => 0],
+            [['active'], 'default', 'value' => 1],
             [['number', 'verification_code'], 'string', 'max' => 45],
             [['country_id'], 'exist', 'skipOnError' => true, 'targetClass' => Country::className(), 'targetAttribute' => ['country_id' => 'id']],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
